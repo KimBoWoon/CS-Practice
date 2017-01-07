@@ -6,6 +6,26 @@ using System.Threading.Tasks;
 
 namespace Chapter3
 {
+    class A
+    {
+        protected int a = 1;
+
+        public A()
+        {
+            Console.WriteLine("A Class");
+        }
+    }
+
+    class B : A
+    {
+        int b = 2;
+
+        public B()
+        {
+            Console.WriteLine(base.a);
+            Console.WriteLine("B Class");
+        }
+    }
     class Practice
     {
         // 필드 부분
@@ -31,6 +51,7 @@ namespace Chapter3
         // abstract나 vitual은 sealed라는 키워드를 사용해서 봉인할 수 있다
         // base를 사용해 상위 클래스의 멤버를 사용할 수 있다
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -39,6 +60,9 @@ namespace Chapter3
 
             p.CurrentPrice = 1;
             Console.WriteLine(p.CurrentPrice);
+
+            A a = new A();
+            B b = new B();
         }
     }
 }
