@@ -14,6 +14,17 @@ namespace Chapter3
         {
             Console.WriteLine("A Class");
         }
+
+        // 함수를 가상화 하고 자식에서 구현한다
+        public virtual void func()
+        {
+            Console.WriteLine("a Function");
+        }
+
+        public virtual void func2()
+        {
+            Console.WriteLine("virtual func2 Function");
+        }
     }
 
     class B : A
@@ -25,7 +36,39 @@ namespace Chapter3
             Console.WriteLine(base.a);
             Console.WriteLine("B Class");
         }
+
+        // 가상화된 함수를 구현
+        public override void func()
+        {
+            base.func();
+            Console.WriteLine("Override func Function");
+        }
+
+        // abstract나 vitual은 sealed라는 키워드를 사용해서 봉인할 수 있다
+        // 다음 자식이 오버라이드할 수 없음
+        public override sealed void func2()
+        {
+            Console.WriteLine("virtual sealed func2 Function");
+        }
     }
+
+    class C : B
+    {
+        int c = 3;
+        
+        public C()
+        {
+            Console.WriteLine(base.b);
+            Console.WriteLine("C Class");
+        }
+
+        // 에러 발생
+        public override void func2()
+        {
+            Console.WriteLine("sealed func2 Function");
+        }
+    }
+
     class Practice
     {
         // 필드 부분
@@ -48,8 +91,6 @@ namespace Chapter3
         public decimal Worth => a * b;
 
         // is는 java의 instanceof랑 같다
-        // abstract나 vitual은 sealed라는 키워드를 사용해서 봉인할 수 있다
-        // base를 사용해 상위 클래스의 멤버를 사용할 수 있다
     }
 
     class Program
