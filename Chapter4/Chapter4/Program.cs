@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chapter4
 {
-    // 함수를 직접적으로 호출하기 보다는 간접적으로 호출한다?
+    // 함수 포인터랑 비슷한 의미
+    // 함수를 등록하고 등록된 순서에 따라 실행된다
     delegate int Practice(int x);
     // 여러개의 함수가 들어갈 수 있으며 등록된 함수 순서대로 실행된다
     delegate void mutipleDelegate();
